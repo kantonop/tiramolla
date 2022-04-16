@@ -1,0 +1,31 @@
+servers:
+  - name: foo
+    addr: 1.1.1.1
+    # port defaults to 22
+    port: 22
+    authentication_method: password
+    # if user or pass start with '$', then their value
+    # is taken from environmental variables
+    user: $USER
+    pass: $PASS
+
+  - name: bar
+    addr: 2.2.2.2
+    authentication_method: password
+    # user and pass literals (not recommended)
+    user: kantonop
+    pass: s3cr3t
+    # bar's gateway is foo
+    # connecting to bar will be established via foo
+    gateway: foo
+
+  - name: qux
+    addr: 3.3.3.3
+    authentication_method: password
+    user: $USER
+    pass: $PASS
+    # qux is one hop away from bar
+    # making a server chain of 3 (foo -> bar -> qux)
+    gateway: bar
+    # escalation of privilege
+    become_user: tiramolla_user
