@@ -85,7 +85,7 @@ $
 
 You have [Go installed](https://go.dev/doc/install).
 ```sh
-git clone git@github.com:kantonop/tiramolla.git ~/tiramolla
+git clone https://github.com/kantonop/tiramolla.git ~/tiramolla
 cd ~/tiramolla
 make
 ```
