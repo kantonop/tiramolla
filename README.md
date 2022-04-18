@@ -95,7 +95,7 @@ tiramolla executable will be installed in `$GOPATH`, `$GOBIN` or `~/go/bin`, mak
 ## Uninstall
 
 ```sh
-# clone again the repository (or navigate to its folder
+# clone again the repository if necessary and navigate to the folder
 make uninstall
 ```
 
