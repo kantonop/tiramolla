@@ -16,8 +16,9 @@ limitations under the License.
 package cmd
 
 import (
-	"github/kantonop/tiramolla/pkg/remote"
 	"os"
+
+	"github.com/kantonop/tiramolla/pkg/remote"
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"

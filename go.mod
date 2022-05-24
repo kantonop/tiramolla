@@ -1,4 +1,4 @@
-module github/kantonop/tiramolla
+module github.com/kantonop/tiramolla
 
 go 1.17
 

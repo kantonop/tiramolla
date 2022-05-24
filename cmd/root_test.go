@@ -16,12 +16,13 @@ limitations under the License.
 package cmd
 
 import (
-	"github/kantonop/tiramolla/pkg/remote"
 	"io"
 	"os"
 	"path/filepath"
 	"reflect"
 	"testing"
+
+	"github.com/kantonop/tiramolla/pkg/remote"
 )
 
 func TestInitConfig(t *testing.T) {

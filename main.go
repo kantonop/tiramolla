@@ -15,7 +15,7 @@ limitations under the License.
 */
 package main
 
-import "github/kantonop/tiramolla/cmd"
+import "github.com/kantonop/tiramolla/cmd"
 
 func main() {
 	cmd.Execute()

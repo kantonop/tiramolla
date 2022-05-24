@@ -17,10 +17,11 @@ package cmd
 
 import (
 	"fmt"
-	"github/kantonop/tiramolla/pkg/remote"
 	"io"
 	"os"
 	"testing"
+
+	"github.com/kantonop/tiramolla/pkg/remote"
 
 	"github.com/spf13/cobra"
 )
