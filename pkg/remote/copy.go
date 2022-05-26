@@ -149,7 +149,7 @@ func (server Server) copyAsBecomeUser(file, dest string, giveReadPerm bool) erro
 
 	err = sess.Run(cmd)
 	if err != nil {
-		return fmt.Errorf("error running '%s': %v", cmd, err)
+		return fmt.Errorf("error copying file to %s - make sure directory have execute permissions for 'all'", dest)
 	}
 
 	// give read permissions to the file in destination
@@ -164,8 +164,9 @@ func (server Server) copyAsBecomeUser(file, dest string, giveReadPerm bool) erro
 		defer sess.Close()
 
 		err = sess.Run(cmd)
+		// we don't expect this command to fail as we were already able to copy the file
 		if err != nil {
-			return fmt.Errorf("error running '%s': %v", cmd, err)
+			return err
 		}
 	}
 
