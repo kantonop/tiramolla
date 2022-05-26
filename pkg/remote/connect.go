@@ -17,6 +17,7 @@ package remote
 
 import (
 	"fmt"
+	"net/url"
 	"os"
 	"regexp"
 	"strings"
@@ -159,7 +160,11 @@ func (server Server) constructAuthMethod() ([]ssh.AuthMethod, error) {
 			pass = os.Getenv(strings.TrimPrefix(server.Pass, "$"))
 		}
 
-		authMethods = append(authMethods, ssh.Password(pass))
+		decodedPass, err := url.QueryUnescape(pass)
+		if err != nil {
+			return nil, fmt.Errorf("error decoding password %s: %v", pass, err)
+		}
+		authMethods = append(authMethods, ssh.Password(decodedPass))
 	default:
 		return nil, fmt.Errorf("authentication method %s is not supported", server.AuthenticationMethod)
 	}

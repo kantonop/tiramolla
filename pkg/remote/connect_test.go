@@ -92,6 +92,16 @@ func TestConstructAuthMethod(t *testing.T) {
 			expErr: nil,
 		},
 		{
+			name:   "PasswordHexEncoded",
+			server: Server{Name: "foo", AuthenticationMethod: "password", Pass: "foo%3C3"},
+			expErr: nil,
+		},
+		{
+			name:   "PasswordBadEncoding",
+			server: Server{Name: "foo", AuthenticationMethod: "password", Pass: "foo%3"},
+			expErr: fmt.Errorf("PasswordBadEncoding"),
+		},
+		{
 			name:   "UnknownAuthMethod",
 			server: Server{Name: "foo", AuthenticationMethod: "unknown"},
 			expErr: fmt.Errorf("UnknownAuthMethod"),
